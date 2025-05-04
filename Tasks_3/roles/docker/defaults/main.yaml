@@ -1,0 +1,3 @@
+container_name: http_checker
+docker_image: http_request_checker
+docker_user: ubuntu

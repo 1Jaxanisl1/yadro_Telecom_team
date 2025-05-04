@@ -1,0 +1,8 @@
+- name: Download docker
+  import_tasks: install.yaml
+
+- name: Build docker 
+  import_tasks: build.yaml
+
+- name: Run docker
+  import_tasks: run.yaml

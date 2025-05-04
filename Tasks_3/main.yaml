@@ -1,0 +1,8 @@
+
+- name: Основной PlayBook, Установка зависимостей и Docker-а
+  hosts: local
+  become: true
+  
+  roles:
+    - common
+    - docker

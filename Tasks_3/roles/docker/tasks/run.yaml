@@ -1,0 +1,20 @@
+- name: Run container with script
+  community.docker.docker_container:
+    name: "{{ container_name }}"
+    image: "{{ docker_image }}"
+    command: "{{ 'python3 ./http_requests.py' }}"
+    detach: false
+  register: container_result
+
+- name: Show exit status
+  debug:
+    msg: "Container exited with status {{ container_result.status }}"
+
+- name: Get log container
+  ansible.builtin.shell: docker logs "{{ container_name }}"
+  register: container_logs
+  changed_when: false
+
+- name: Print logs container
+  ansible.builtin.debug:
+    msg: "{{ container_logs.stdout_lines }}"
